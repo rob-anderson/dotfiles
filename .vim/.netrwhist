@@ -1,0 +1,11 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =9
+let g:netrw_dirhist_1='/Volumes/home/shared/Rails/clearcashportal'
+let g:netrw_dirhist_2='/Volumes/home/shared/Rails_from_backup/lebaraportal'
+let g:netrw_dirhist_3='/Volumes/home/shared/Ruby/model_xml'
+let g:netrw_dirhist_4='/Volumes/home/shared/Rails/breadfxportal'
+let g:netrw_dirhist_5='/Volumes/home/shared/Rails/lebaraportal'
+let g:netrw_dirhist_6='/Volumes/home/shared/Ruby/model_xml'
+let g:netrw_dirhist_7='/Volumes/home/mac/robanderson/temp'
+let g:netrw_dirhist_8='/Volumes/home/shared/Ruby/payzone_listener'
+let g:netrw_dirhist_9='/Volumes/home/shared/Ruby/fis_connector'
