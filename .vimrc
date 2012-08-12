@@ -12,9 +12,6 @@ map <localleader>t <Plug>RubyTestRun
 map <localleader>l <Plug>RubyTestRunLast
 map <localleader>r <Plug>RubyFileRun
 
-" NERDCommenter stuff
-map <localleader>c <plug>NERDCommenterToggle
-
 " general mappings
 set nocompatible      " Use vim, no vi defaults
 set number            " Show line numbers
@@ -36,7 +33,6 @@ set listchars+=precedes:<         " The character to show in the last column whe
                                   " off and the line continues beyond the right of the screen
 
 " searching
-
 set hlsearch    " highlight matches
 set incsearch   " incremental searching
 set ignorecase  " searches are case insensitive...
@@ -71,12 +67,11 @@ let g:ctrlp_root_markers = ['Capfile']
 " rubytest plugin
 nnoremap <localleader>r :!ruby %<cr>
 
+" NERDCommenter stuff
 " show and hide NERDTree
 map <localleader>tn :NERDTreeToggle<cr>
-
 " open files / directories with space
 let NERDTreeMapActivateNode='<space>'
-
 " show the current file in a new tree
 map <localleader>tf :NERDTreeFind<cr>
 
