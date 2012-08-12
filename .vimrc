@@ -2,6 +2,8 @@ call pathogen#infect()
 syntax on
 filetype plugin indent on
 
+colorscheme elflord
+
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 
@@ -41,8 +43,8 @@ set ignorecase  " searches are case insensitive...
 set smartcase   " ... unless they contain at least one capital letter
 
 " backup and swp
-set backupdir=~/.vim/_backup//    " where to put backup files.
-set directory=~/.vim/_temp//      " where to put swap files.
+"set backupdir=~/.vim/_backup//    " where to put backup files.
+"set directory=~/.vim/_temp//      " where to put swap files.
 set backupskip=/tmp/*,/private/tmp/* " don't backup files in these directories (eg crontab)
 
 " Close all buffers except the current one
