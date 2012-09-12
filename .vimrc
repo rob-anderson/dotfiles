@@ -23,6 +23,8 @@ set list                          " Show invisible characters
 set backspace=indent,eol,start    " backspace through everything in insert mode
 set noswapfile                    " swap files are a pain in the ass
 
+set shell=/bin/sh                    " otherwise using zsh with rvm doesn't work
+
 " List chars
 set listchars=""                  " Reset the listchars
 set listchars=tab:\ \             " a tab should display as "  ", trailing whitespace as "."
@@ -68,6 +70,8 @@ let g:ctrlp_root_markers = ['Capfile']
 nnoremap <localleader>r :!ruby %<cr>
 
 " NERDCommenter stuff
+map <localleader>c <plug>NERDCommenterToggle
+
 " show and hide NERDTree
 map <localleader>tn :NERDTreeToggle<cr>
 " open files / directories with space
@@ -98,3 +102,9 @@ autocmd BufWritePre * :%s/\s\+$//e
 
 " pretty format xml
 nnoremap <localleader>x :%s/></>\r</g<cr>:0<cr>=:$<cr>
+
+" mail settings
+au FileType mail set tw=0
+au FileType mail set wrap
+au FileType mail set linebreak
+
