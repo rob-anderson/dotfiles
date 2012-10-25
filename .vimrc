@@ -6,7 +6,7 @@ filetype plugin indent on
 colorscheme elflord
 
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
-nnoremap <leader>sv :source $MYVIMRC<cr>
+nnoremap <leader>sv :source $MYVIMRC<cr>:source ~/.gvimrc<cr>
 
 let maplocalleader = ","
 map <localleader>t <Plug>RubyTestRun
