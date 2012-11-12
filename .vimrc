@@ -36,7 +36,7 @@ set listchars+=precedes:<         " The character to show in the last column whe
                                   " off and the line continues beyond the right of the screen
 
 " searching
-set hlsearch    " highlight matches
+"set hlsearch    " highlight matches
 set incsearch   " incremental searching
 set ignorecase  " searches are case insensitive...
 set smartcase   " ... unless they contain at least one capital letter
@@ -46,14 +46,17 @@ set smartcase   " ... unless they contain at least one capital letter
 "set directory=~/.vim/_temp//      " where to put swap files.
 set backupskip=/tmp/*,/private/tmp/* " don't backup files in these directories (eg crontab)
 
-" Close all buffers except the current one
-map <localleader>qa :BufOnly<cr>
-
 " map :W to :w because I have fat fingers
 nnoremap :W :w
 
-" map ## in insert mode to create a ruby string interpolated variable
-inoremap ## #{}<left>
+" Ruby stuff
+
+" map (shift "section" ie the key to the left of 1) in insert mode to create a ruby string interpolated variable
+inoremap ± #{}"<left><left>
+inoremap § #
+
+" map ,l in insert mode to hash rocket
+inoremap <localleader>l <space>=><space>
 
 " delete logs
 nnoremap <localleader>dl :!rm -i log/test.log<cr>
@@ -109,3 +112,6 @@ au FileType mail set tw=0
 au FileType mail set wrap
 au FileType mail set linebreak
 
+" rails vim mappings
+" switch between related files
+nnoremap <localleader>aa :AV<cr>
