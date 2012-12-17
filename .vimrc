@@ -48,18 +48,25 @@ set backupskip=/tmp/*,/private/tmp/* " don't backup files in these directories (
 
 " map :W to :w because I have fat fingers
 nnoremap :W :w
+" map :Q to :q because I have fat fingers
+nnoremap :Q :q
 
 " Ruby stuff
 
 " map (shift "section" ie the key to the left of 1) in insert mode to create a ruby string interpolated variable
-inoremap ± #{}"<left><left>
+inoremap ± #{}<left><left>
 inoremap § #
+noremap § #
 
 " map ,l in insert mode to hash rocket
 inoremap <localleader>l <space>=><space>
 
 " delete logs
 nnoremap <localleader>dl :!rm -i log/test.log<cr>
+
+" Ack settings
+" -a means include all file types
+let g:ackprg="ack -a"
 
 " ctrl p
 let g:ctrlp_map = '<c-p>'
@@ -68,6 +75,7 @@ let g:ctrlp_prompt_mappings = {
   \ 'AcceptSelection("t")': ['<cr>', '<c-m>'],
   \ }
 let g:ctrlp_root_markers = ['Capfile']
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.scssc
 
 " map localleader r to execute as ruby, regardless of content - overrides
 " rubytest plugin
@@ -115,3 +123,6 @@ au FileType mail set linebreak
 " rails vim mappings
 " switch between related files
 nnoremap <localleader>aa :AV<cr>
+
+" close all tabs except NERDtree
+nnoremap <leader>q :tabfirst<cr>:tabo<cr>
