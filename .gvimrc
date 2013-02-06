@@ -21,7 +21,9 @@ if has("gui_macvim")
   map <D-Left> gT
 
   " and do the same for control-shift h and l
-  map <C-S-l> gt
-  map <C-S-h> gT
+  nmap <C-S-l> gt
+  nmap <C-S-h> gT
+  imap <C-S-l> <Esc>gt
+  imap <C-S-h> <Esc>gT
 
 endif

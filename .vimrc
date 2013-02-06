@@ -13,6 +13,20 @@ map <localleader>t <Plug>RubyTestRun
 map <localleader>l <Plug>RubyTestRunLast
 map <localleader>r <Plug>RubyFileRun
 
+" right time to bite the bullet
+map <up> <nop>
+map <down> <nop>
+map <left> <nop>
+map <right> <nop>
+imap <up> <nop>
+imap <down> <nop>
+imap <left> <nop>
+imap <right> <nop>
+noremap <Left> gT
+noremap  <Right> gt
+inoremap <Left> <Esc>gT
+inoremap  <Right> <Esc>gt
+
 " general mappings
 set nocompatible      " Use vim, no vi defaults
 set number            " Show line numbers
@@ -54,7 +68,7 @@ nnoremap :Q :q
 " Ruby stuff
 
 " map (shift "section" ie the key to the left of 1) in insert mode to create a ruby string interpolated variable
-inoremap ± #{}<left><left>
+inoremap ± #{}<left>
 inoremap § #
 noremap § #
 
