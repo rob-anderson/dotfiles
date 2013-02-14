@@ -140,3 +140,9 @@ nnoremap <localleader>aa :AV<cr>
 
 " close all tabs except NERDtree
 nnoremap <leader>q :tabfirst<cr>:tabo<cr>
+
+" change tabs with ctrl shift h | l
+nmap <C-S-l> gt
+nmap <C-S-h> gT
+imap <C-S-l> <Esc>gt
+imap <C-S-h> <Esc>gT
