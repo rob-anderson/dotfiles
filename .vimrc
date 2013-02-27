@@ -3,7 +3,7 @@ filetype off
 syntax on
 filetype plugin indent on
 
-colorscheme elflord
+colorscheme molokai
 
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>:source ~/.gvimrc<cr>
@@ -89,6 +89,7 @@ let g:ctrlp_prompt_mappings = {
   \ 'AcceptSelection("t")': ['<cr>', '<c-m>'],
   \ }
 let g:ctrlp_root_markers = ['Capfile']
+let g:ctrlp_max_files = 0
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.scssc
 
 " map localleader r to execute as ruby, regardless of content - overrides
@@ -146,3 +147,11 @@ nmap <C-S-l> gt
 nmap <C-S-h> gT
 imap <C-S-l> <Esc>gt
 imap <C-S-h> <Esc>gT
+
+" Yank text to the OS X clipboard
+noremap <leader>y "*y
+noremap <leader>yy "*Y
+
+" Preserve indentation while pasting text from the OS X clipboard
+noremap <leader>p :set paste<CR>:put  *<CR>:set nopaste<CR>
+
