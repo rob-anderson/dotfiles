@@ -6,12 +6,13 @@ filetype plugin indent on
 colorscheme molokai
 
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
-nnoremap <leader>sv :source $MYVIMRC<cr>:source ~/.gvimrc<cr>
+nnoremap <leader>sv :source $MYVIMRC<cr>:source ~/.vimrc<cr>
 
 let maplocalleader = ","
 map <localleader>t <Plug>RubyTestRun
 map <localleader>l <Plug>RubyTestRunLast
 map <localleader>r <Plug>RubyFileRun
+let g:rubytest_cmd_testcase = "clear; ruby %p -n '/%c/'"
 
 " right time to bite the bullet
 map <up> <nop>
@@ -80,7 +81,7 @@ nnoremap <localleader>dl :!rm -i log/test.log<cr>
 
 " Ack settings
 " -a means include all file types
-let g:ackprg="ack -a"
+"let g:ackprg="ack -a"
 
 " ctrl p
 let g:ctrlp_map = '<c-p>'
@@ -94,7 +95,7 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.scssc
 
 " map localleader r to execute as ruby, regardless of content - overrides
 " rubytest plugin
-nnoremap <localleader>r :!ruby %<cr>
+nnoremap <localleader>r :!clear; ruby %<cr>
 
 " NERDCommenter stuff
 map <localleader>c <plug>NERDCommenterToggle
@@ -128,12 +129,7 @@ nnoremap <localleader>w :%s/\s\+$//<cr>
 autocmd BufWritePre * :%s/\s\+$//e
 
 " pretty format xml
-nnoremap <localleader>x :%s/></>\r</g<cr>:0<cr>=:$<cr>
-
-" mail settings
-au FileType mail set tw=0
-au FileType mail set wrap
-au FileType mail set linebreak
+nnoremap <localleader>x :set filetype=xml<cr>gg=G<cr>:%s/></>\r</g<cr>:0<cr>=:$<cr>gg=G<cr>
 
 " rails vim mappings
 " switch between related files
