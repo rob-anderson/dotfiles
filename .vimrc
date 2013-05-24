@@ -98,7 +98,8 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.scssc
 nnoremap <localleader>r :!clear; ruby %<cr>
 
 " NERDCommenter stuff
-map <localleader>c <plug>NERDCommenterToggle
+" map <localleader>c <plug>NERDCommenterToggle
+map <localleader>c gcc
 
 " show and hide NERDTree
 map <localleader>tn :NERDTreeToggle<cr>
@@ -151,3 +152,8 @@ noremap <leader>yy "*Y
 " Preserve indentation while pasting text from the OS X clipboard
 noremap <leader>p :set paste<CR>:put  *<CR>:set nopaste<CR>
 
+" powerline stuff
+python import sys; sys.path.append("/usr/local/lib/python2.7/site-packages/")
+source /usr/local/lib/python2.7/site-packages/powerline/bindings/vim/plugin/powerline.vim
+set laststatus=2 " Always display the statusline in all windows
+set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline)
