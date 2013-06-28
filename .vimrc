@@ -130,7 +130,8 @@ nnoremap <localleader>w :%s/\s\+$//<cr>
 autocmd BufWritePre * :%s/\s\+$//e
 
 " pretty format xml
-nnoremap <localleader>x :set filetype=xml<cr>gg=G<cr>:%s/></>\r</g<cr>:0<cr>=:$<cr>gg=G<cr>
+nnoremap <localleader>x :set filetype=xml<cr>gg=G<cr>
+nnoremap <localleader>X :%s/></>\r</g<cr>:0<cr>=:$<cr>gg=G<cr>
 
 " rails vim mappings
 " switch between related files
@@ -157,3 +158,15 @@ python import sys; sys.path.append("/usr/local/lib/python2.7/site-packages/")
 source /usr/local/lib/python2.7/site-packages/powerline/bindings/vim/plugin/powerline.vim
 set laststatus=2 " Always display the statusline in all windows
 set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline)
+
+"toggle line wrapping
+nnoremap <localleader>w :set wrap!<cr>
+
+" disable auto comment repeat
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+
+"vim git gutter causes lag if it eagerly refreshes - disable so that it only refreshes on read and write
+let g:gitgutter_eager = 0
+
+"toggle vim gitgutter
+nnoremap <localleader>g :GitGutterToggle<cr>
