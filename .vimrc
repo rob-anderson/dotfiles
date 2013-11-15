@@ -1,6 +1,10 @@
 call pathogen#infect()
 filetype off
-syntax on
+
+" use the old vim regexp engine.  ruby syntax highlighting is bad enough on the old engine; it's unuseable on the new one
+set re=1
+syntax on "turn this off if vim is terribly laggy on some ruby files with big string literals
+
 filetype plugin indent on
 
 colorscheme molokai
@@ -11,7 +15,6 @@ nnoremap <leader>sv :source $MYVIMRC<cr>:source ~/.vimrc<cr>
 let maplocalleader = ","
 map <localleader>t <Plug>RubyTestRun
 map <localleader>l <Plug>RubyTestRunLast
-map <localleader>r <Plug>RubyFileRun
 let g:rubytest_cmd_testcase = "clear; ruby %p -n '/%c/'"
 
 " right time to bite the bullet
@@ -76,13 +79,6 @@ noremap § #
 " map ,l in insert mode to hash rocket
 inoremap <localleader>l <space>=><space>
 
-" delete logs
-nnoremap <localleader>dl :!rm -i log/test.log<cr>
-
-" Ack settings
-" -a means include all file types
-"let g:ackprg="ack -a"
-
 " ctrl p
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_prompt_mappings = {
@@ -95,7 +91,7 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.scssc
 
 " map localleader r to execute as ruby, regardless of content - overrides
 " rubytest plugin
-nnoremap <localleader>r :!clear; ruby %<cr>
+nnoremap <localleader>r :!clear; ruby '%'<cr>
 
 " NERDCommenter stuff
 " map <localleader>c <plug>NERDCommenterToggle
@@ -152,6 +148,7 @@ noremap <leader>yy "*Y
 
 " Preserve indentation while pasting text from the OS X clipboard
 noremap <leader>p :set paste<CR>:put  *<CR>:set nopaste<CR>
+noremap <leader>P :set paste<CR>"*P<CR>:set nopaste<CR>
 
 " powerline stuff
 python import sys; sys.path.append("/usr/local/lib/python2.7/site-packages/")
@@ -170,3 +167,16 @@ let g:gitgutter_eager = 0
 
 "toggle vim gitgutter
 nnoremap <localleader>g :GitGutterToggle<cr>
+
+" pry stuff
+nnoremap <localleader>p Obinding.pry<esc>
+nnoremap <localleader>P :Ack! binding.pry<cr>
+
+"vim-coffee-script stuff
+" for the syntax checking on save to work we need the coffee compiler installed.  On OSX do:
+" brew install node
+" npm -g install coffee-script
+au BufWritePost *.coffee silent make -o /dev/null | cwindow | redraw!
+au BufWritePost *.coffee.erb silent make -o /dev/null | cwindow | redraw!
+
+runtime macros/matchit.vim
