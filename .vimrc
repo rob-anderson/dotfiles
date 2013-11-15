@@ -1,8 +1,11 @@
 call pathogen#infect()
 filetype off
 
-" use the old vim regexp engine.  ruby syntax highlighting is bad enough on the old engine; it's unuseable on the new one
-set re=1
+" use the old vim regexp engine if running 7.4 or higher.  ruby syntax highlighting is bad enough on the old engine; it's unuseable on the new one
+if version >= 704
+  set re=1
+endif
+
 syntax on "turn this off if vim is terribly laggy on some ruby files with big string literals
 
 filetype plugin indent on
