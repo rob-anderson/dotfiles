@@ -1,6 +1,11 @@
 call pathogen#infect()
 filetype off
 
+" go stuff
+if filereadable("/usr/local/Cellar/go/1.1.2/libexec/misc/vim/readme.txt")
+  set runtimepath+=/usr/local/Cellar/go/1.1.2/libexec/misc/vim
+endif
+
 " use the old vim regexp engine if running 7.4 or higher.  ruby syntax highlighting is bad enough on the old engine; it's unuseable on the new one
 if version >= 704
   set re=1
