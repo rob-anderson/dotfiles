@@ -77,6 +77,10 @@ nnoremap :W :w
 " map :Q to :q because I have fat fingers
 nnoremap :Q :q
 
+" map H and L to page one screen left and right respectively
+nnoremap H 2zH
+nnoremap L 2zL
+
 " Ruby stuff
 
 " map (shift "section" ie the key to the left of 1) in insert mode to create a ruby string interpolated variable
@@ -190,3 +194,4 @@ au BufWritePost *.coffee silent make -o /dev/null | cwindow | redraw!
 au BufWritePost *.coffee.erb silent make -o /dev/null | cwindow | redraw!
 
 runtime macros/matchit.vim
+

@@ -1,6 +1,8 @@
 # OSX-specific tmux conf
 
-source-file '~/dotfiles/.tmux.conf'
+source-file '/Users/robanderson/dotfiles/.tmux.conf'
+
+set-option -g prefix C-a
 
 source '/usr/local/lib/python2.7/site-packages/powerline/bindings/tmux/powerline.conf'
 set -g status-right '#(/usr/local/share/python/powerline tmux right)'
