@@ -81,6 +81,9 @@ nnoremap :Q :q
 nnoremap H 2zH
 nnoremap L 2zL
 
+" map f5 to lock scrolling and set horizontal scroll.  useful when using vim as a mysql pager
+nnoremap <f5> :set scrollopt+=hor<cr>:windo set scrollbind<cr>
+
 " Ruby stuff
 
 " map (shift "section" ie the key to the left of 1) in insert mode to create a ruby string interpolated variable
@@ -195,3 +198,18 @@ au BufWritePost *.coffee.erb silent make -o /dev/null | cwindow | redraw!
 
 runtime macros/matchit.vim
 
+" dbext.vim stuff
+if filereadable('/Users/robanderson/.dbext.vim')
+  source /Users/robanderson/.dbext.vim
+endif
+
+function! DBextPostResult(db_type, buf_nr)
+  " If dealing with a MYSQL database
+  if a:db_type == 'MYSQL'
+    " Assuming the first column is an integer
+    " highlight it using the WarningMsg color
+    syn match logWarn '^\d\+'
+    syn match logWarn '^|'
+    hi def link logWarn		WarningMsg
+  endif
+endfunction
