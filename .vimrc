@@ -1,5 +1,6 @@
 call pathogen#infect()
 filetype off
+let g:VimuxUseNearestPane = 0
 
 " go stuff
 if filereadable("/usr/local/Cellar/go/1.1.2/libexec/misc/vim/readme.txt")
@@ -23,7 +24,7 @@ nnoremap <leader>sv :source $MYVIMRC<cr>:source ~/.vimrc<cr>
 let maplocalleader = ","
 map <localleader>t <Plug>RubyTestRun
 map <localleader>l <Plug>RubyTestRunLast
-let g:rubytest_cmd_testcase = "clear; ruby %p -n '/%c/'"
+let g:rubytest_cmd_testcase = "clear; ruby %p -n \"/%c/\""
 
 " right time to bite the bullet
 map <up> <nop>
@@ -193,8 +194,8 @@ nnoremap <localleader>P :Ack! binding.pry<cr>
 " for the syntax checking on save to work we need the coffee compiler installed.  On OSX do:
 " brew install node
 " npm -g install coffee-script
-au BufWritePost *.coffee silent make -o /dev/null | cwindow | redraw!
-au BufWritePost *.coffee.erb silent make -o /dev/null | cwindow | redraw!
+" au BufWritePost *.coffee silent make -o /dev/null | cwindow | redraw!
+" au BufWritePost *.coffee.erb silent make -o /dev/null | cwindow | redraw!
 
 runtime macros/matchit.vim
 

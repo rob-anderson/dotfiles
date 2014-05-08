@@ -73,3 +73,6 @@
 [submodule ".vim/bundle/vimux"]
 	path = .vim/bundle/vimux
 	url = https://github.com/benmills/vimux.git
+[submodule "dbext_rob"]
+	path = .vim/bundle/dbext
+	url = https://github.com/rob-anderson/dbext.vim.git
