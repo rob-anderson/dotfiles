@@ -76,3 +76,9 @@
 [submodule "dbext_rob"]
 	path = .vim/bundle/dbext
 	url = https://github.com/rob-anderson/dbext.vim.git
+[submodule ".vim/bundle/vim-bundler"]
+	path = .vim/bundle/vim-bundler
+	url = git://github.com/tpope/vim-bundler.git
+[submodule ".vim/bundle/vim-autotag"]
+	path = .vim/bundle/vim-autotag
+	url = git://github.com/craigemery/vim-autotag.git
