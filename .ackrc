@@ -7,3 +7,5 @@
 # some additional file types for rails
 --type-set=haml=.haml
 --type-set=sass=.sass,.scss
+
+--ignore-dir=log,tmp,public,tags,lib/pcs_core/tags

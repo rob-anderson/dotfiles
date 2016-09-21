@@ -6,6 +6,7 @@ let g:VimuxUseNearestPane = 0
 if filereadable("/usr/local/Cellar/go/1.1.2/libexec/misc/vim/readme.txt")
   set runtimepath+=/usr/local/Cellar/go/1.1.2/libexec/misc/vim
 endif
+:nnoremap <C-i> <C-a>
 
 " use the old vim regexp engine if running 7.4 or higher.  ruby syntax highlighting is bad enough on the old engine; it's unuseable on the new one
 if version >= 704
@@ -78,10 +79,6 @@ nnoremap :W :w
 " map :Q to :q because I have fat fingers
 nnoremap :Q :q
 
-" map H and L to page one screen left and right respectively
-nnoremap H 2zH
-nnoremap L 2zL
-
 " map f5 to lock scrolling and set horizontal scroll.  useful when using vim as a mysql pager
 nnoremap <f5> :set scrollopt+=hor<cr>:windo set scrollbind<cr>
 
@@ -100,14 +97,16 @@ let g:ctrlp_map = '<c-p>'
 let g:ctrlp_prompt_mappings = {
   \ 'AcceptSelection("e")': [],
   \ 'AcceptSelection("t")': ['<cr>', '<c-m>'],
+  \ 'PrtClearCache()':      ['<c-r>'],
   \ }
 let g:ctrlp_root_markers = ['Capfile']
 let g:ctrlp_max_files = 0
+" let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files'] " this is faster in git projects
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.scssc
 
 " map localleader r to execute as ruby, regardless of content - overrides
 " rubytest plugin
-nnoremap <localleader>r :!clear; ruby '%'<cr>
+nnoremap <localleader>r :!clear; bundle exec ruby '%'<cr>
 
 " NERDCommenter stuff
 " map <localleader>c <plug>NERDCommenterToggle
@@ -122,7 +121,7 @@ map <localleader>tf :NERDTreeFind<cr>
 
 " Syntastic settings
 let g:syntastic_enable_signs=1
-let g:syntastic_quiet_warnings=0
+let g:syntastic_quiet_messages = {'level': 'warnings'}
 let g:syntastic_auto_loc_list=2
 
 function! NumberToggle()
@@ -167,12 +166,14 @@ noremap <leader>p :set paste<CR>:put  *<CR>:set nopaste<CR>
 noremap <leader>P :set paste<CR>"*P<CR>:set nopaste<CR>
 
 " powerline stuff - OSX only
-if filereadable("/usr/local/lib/python2.7/site-packages/powerline/bindings/vim/plugin/powerline.vim")
-  python import sys; sys.path.append("/usr/local/lib/python2.7/site-packages/")
-  source /usr/local/lib/python2.7/site-packages/powerline/bindings/vim/plugin/powerline.vim
-  set laststatus=2 " Always display the statusline in all windows
-  set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline)
-endif
+" if !has('nvim')
+"   if filereadable("/usr/local/lib/python2.7/site-packages/powerline/bindings/vim/plugin/powerline.vim")
+"     python import sys; sys.path.append("/usr/local/lib/python2.7/site-packages/")
+"     source /usr/local/lib/python2.7/site-packages/powerline/bindings/vim/plugin/powerline.vim
+"     set laststatus=2 " Always display the statusline in all windows
+"     set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline)
+"   endif
+" endif
 
 "toggle line wrapping
 nnoremap <localleader>w :set wrap!<cr>
@@ -214,3 +215,5 @@ function! DBextPostResult(db_type, buf_nr)
     hi def link logWarn		WarningMsg
   endif
 endfunction
+
+autocmd QuickFixCmdPost *grep* cwindow

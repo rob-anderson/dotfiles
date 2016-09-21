@@ -4,9 +4,10 @@ source-file '/Users/robanderson/dotfiles/.tmux.conf'
 
 set-option -g prefix C-a
 set-option -g default-shell $SHELL
+set-option -g history-limit 5000 # number of scrollback lines
 
 source '/usr/local/lib/python2.7/site-packages/powerline/bindings/tmux/powerline.conf'
-set -g status-right '#(/usr/local/share/python/powerline tmux right)'
+# set -g status-right 'Online: #{online_status} #(/usr/local/share/python/powerline tmux right)'
 
 # set -g default-command "reattach-to-user-namespace -l zsh"
 set -g default-command "reattach-to-user-namespace -l fish"
@@ -14,3 +15,21 @@ bind y run "tmux save-buffer - | reattach-to-user-namespace pbcopy"
 
 set-option -g pane-active-border-fg yellow
 set-option -g pane-active-border-bg black
+
+# List of plugins
+# Supports `github_username/repo` or full git URLs
+set -g @tpm_plugins "              \
+  tmux-plugins/tpm                 \
+  tmux-plugins/tmux-online-status     \
+"
+# Other examples:
+# github_username/plugin_name    \
+# git@github.com/user/plugin     \
+# git@bitbucket.com/user/plugin  \
+
+# attempt to fix high notifyd cpu usage under El Cap
+# set -g status-interval 0
+
+# Initializes TMUX plugin manager.
+# Keep this line at the very bottom of tmux.conf.
+run-shell ~/.tmux/plugins/tpm/tpm
