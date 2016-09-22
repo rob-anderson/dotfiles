@@ -26,6 +26,7 @@ let maplocalleader = ","
 map <localleader>t <Plug>RubyTestRun
 map <localleader>l <Plug>RubyLastRun
 let g:rubytest_cmd_testcase = "clear; ruby %p -n \"/%c/\""
+call camelcasemotion#CreateMotionMappings('<localleader>')
 
 " right time to bite the bullet
 map <up> <nop>
@@ -134,9 +135,6 @@ endfunc
 
 nnoremap <C-n> :call NumberToggle()<cr>
 
-" remove whitespace
-nnoremap <localleader>w :%s/\s\+$//<cr>
-
 " automatically remove whitespace on save
 autocmd BufWritePre * :%s/\s\+$//e
 
@@ -174,9 +172,6 @@ noremap <leader>P :set paste<CR>"*P<CR>:set nopaste<CR>
 "     set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline)
 "   endif
 " endif
-
-"toggle line wrapping
-nnoremap <localleader>w :set wrap!<cr>
 
 " disable auto comment repeat
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
