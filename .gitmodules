@@ -27,7 +27,7 @@
 	url = git://github.com/tpope/vim-rails.git
 [submodule ".vim/bundle/vim-rubytest"]
 	path = .vim/bundle/vim-rubytest
-	url = git://github.com/janx/vim-rubytest.git
+	url = https://github.com/rob-anderson/vim-rubytest.git
 [submodule ".vim/bundle/vim-surround"]
 	path = .vim/bundle/vim-surround
 	url = git://github.com/tpope/vim-surround.git

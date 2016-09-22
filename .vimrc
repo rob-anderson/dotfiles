@@ -1,6 +1,6 @@
 call pathogen#infect()
 filetype off
-let g:VimuxUseNearestPane = 0
+let g:VimuxUseNearest = 0
 
 " go stuff
 if filereadable("/usr/local/Cellar/go/1.1.2/libexec/misc/vim/readme.txt")
@@ -24,7 +24,7 @@ nnoremap <leader>sv :source $MYVIMRC<cr>:source ~/.vimrc<cr>
 
 let maplocalleader = ","
 map <localleader>t <Plug>RubyTestRun
-map <localleader>l <Plug>RubyTestRunLast
+map <localleader>l <Plug>RubyLastRun
 let g:rubytest_cmd_testcase = "clear; ruby %p -n \"/%c/\""
 
 " right time to bite the bullet
